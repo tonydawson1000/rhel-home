@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+  - name: Update and Upgrade dnf packages.
+    ansible.builtin.dnf:
+      name: "*"
+      state: latest
+      update_cache: yes
+      cache_valid_time: 86400 # 1 Day
