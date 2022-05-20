@@ -1,5 +1,7 @@
 ---
-
+- hosts: all
+  become: yes
+  
 - name: "Enable Cockpit on RedHat System"
   hosts: "{{ hostlist | default('127.0.0.1') }}"
   become: true
