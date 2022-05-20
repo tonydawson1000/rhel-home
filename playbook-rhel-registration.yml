@@ -1,4 +1,5 @@
 ---
+
 # https://docs.ansible.com/ansible/latest/collections/community/general/redhat_subscription_module.html
 - name: "Register System with RedHat"
   hosts: "{{ hostlist | default('127.0.0.1') }}"
@@ -14,12 +15,13 @@
             auto_attach: true
           no_log: True
       when:
-        - rhel_username is defined and rhel_password is defined and ansible_distribution == "RedHat"
+        - rhel_username is defined and rhel_password is defined
 
     - block:
         - name: "Deregister our system"
           community.general.redhat_subscription:
             state: absent
       when:
-        - rhel_username is not defined and rhel_password is not defined and ansible_distribution == "RedHat"
+        - rhel_username is not defined and rhel_password is not defined
+
 ...

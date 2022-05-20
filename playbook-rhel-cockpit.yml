@@ -1,29 +1,19 @@
 ---
-# 
+
 - name: "Enable Cockpit on RedHat System"
   hosts: "{{ hostlist | default('127.0.0.1') }}"
   become: true
 
   tasks:
-    - block:
-        - name: "Enable Cockpit"
-          ansible.builtin.dnf:
-            name: "cockpit"
-            state: present
-        
-        - name: "Ensure Cockpit is running"
-          ansible.builtin.dnf:
-            name: "cockpit"
-            state: started
-            enabled: yes
-      when:
-        - ansible_distribution == "RedHat"
+    - name: "Enable Cockpit"
+      ansible.builtin.dnf:
+        name: "cockpit"
+        state: present
+    
+    - name: "Ensure Cockpit is running"
+      ansible.builtin.dnf:
+        name: "cockpit"
+        state: started
+        enabled: yes
 
-    - block:
-        - name: "Disable Cockpit"
-          ansible.builtin.dnf:
-            name: "cockpit"
-            state: absent
-      when:
-        - ansible_distribution != "RedHat"
 ...
