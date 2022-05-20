@@ -7,6 +7,6 @@
   tasks:
     - name: "Enable Cockpit"
       ansible.builtin.dnf:
-        name: cockpit
+        name: cockpit.socket
         state: latest
 ...
