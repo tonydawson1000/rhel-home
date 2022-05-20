@@ -14,8 +14,8 @@
         - name: "Ensure Cockpit is running"
           ansible.builtin.dnf:
             name: "cockpit"
-              state: started
-              enabled: yes
+            state: started
+            enabled: yes
       when:
         - ansible_distribution == "RedHat"
 
