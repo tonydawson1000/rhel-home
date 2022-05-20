@@ -1,0 +1,10 @@
+---
+
+- name: "Register with RedHat Insights"
+  hosts: "{{ hostlist | default('127.0.0.1') }}"
+  become: true
+
+  tasks:
+    - name: "Register with RedHat Insights"
+      ansible.builtin.shell: insights-client --register
+...
