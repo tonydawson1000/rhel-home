@@ -1,7 +1,5 @@
 ---
-- hosts: all
-  become: yes
-  
+
 # https://docs.ansible.com/ansible/latest/collections/community/general/redhat_subscription_module.html
 - name: "Register System with RedHat"
   hosts: "{{ hostlist | default('127.0.0.1') }}"
