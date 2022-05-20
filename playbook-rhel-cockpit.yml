@@ -1,12 +1,12 @@
 ---
 
-- name: "Enable Cockpit on RedHat System"
+- name: "Enable Cockpit Service on RedHat System"
   hosts: "{{ hostlist | default('127.0.0.1') }}"
   become: true
 
   tasks:
-    - name: "Enable Cockpit"
-      ansible.builtin.dnf:
+    - name: "Enable Cockpit Service"
+      ansible.builtin.service:
         name: cockpit.socket
-        state: latest
+        state: started
 ...
