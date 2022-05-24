@@ -7,4 +7,5 @@
   tasks:
     - name: "Register with RedHat Insights"
       ansible.builtin.shell: insights-client --register
+
 ...

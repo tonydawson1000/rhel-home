@@ -9,4 +9,5 @@
       ansible.builtin.service:
         name: cockpit.socket
         state: started
+
 ...

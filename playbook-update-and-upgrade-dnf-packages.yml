@@ -1,11 +1,14 @@
 ---
-- hosts: all
-  become: yes
+
+- name: "Update Packages on RedHat System"
+  hosts: "{{ hostlist | default('127.0.0.1') }}"
+  become: true
 
   tasks:
-  - name: Update and Upgrade dnf packages.
+  - name: Update and Upgrade DNF packages.
     ansible.builtin.dnf:
       name: "*"
       state: latest
       update_cache: yes
+
 ...

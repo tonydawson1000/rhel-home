@@ -1,6 +1,8 @@
 ---
-- hosts: all
-  become: yes
+
+- name: "Enable Time Sync Service on RedHat System"
+  hosts: "{{ hostlist | default('127.0.0.1') }}"
+  become: true
 
   tasks:
   - name: Ensure chrony (for time sync) is installed.
@@ -13,4 +15,5 @@
       name: chronyd
       state: started
       enabled: yes
+
 ...
